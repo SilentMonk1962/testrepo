@@ -5,6 +5,7 @@ exports.handler = async (event, context) => {
   try {
     const body = JSON.parse(event.body);
     console.log("Passing the JSON object parsed body.");
+    console.log(body);
     const surveyID=body.survey_id;
     const startTime=body.submission_startTime;
     const endTime=body.submission_completedTime;
