@@ -13,10 +13,15 @@ exports.handler = async (event, context) => {
     const C3 = body.C3 || "NA_c3";
     const Q2 = body.Q2;
     const endTime=body.submission_completedTime;
-    const res = await axios.post(process.env.DISCORD_WEBHOOK_URL, {
-      content: `There is a new submission with ID: ${submissionID} under survey number: ${surveyID}. It was completed on ${endTime}. The customer's reason for not buying is ${Q2}. Additional details of the user are ${C1} ${C2} ${C3}.`
-    });
-    console.log("Submitted!");
+    if (Q2 == "D. I need a callback."){
+        const res = await axios.post(process.env.DISCORD_WEBHOOK_URL, {
+            content: `There is a new submission with ID: ${submissionID} under survey number: ${surveyID}. It was completed on ${endTime}. The customer's reason for not buying is ${Q2}. Additional details of the user are ${C1} ${C2} ${C3}.`
+          });
+          console.log("Submitted!");
+    }
+    else {
+        console.log("User did not like the offering.")
+    }
     return {
       statusCode: 204,
     };
