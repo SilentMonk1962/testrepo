@@ -12,7 +12,14 @@ exports.handler = async (event, context) => {
     const Q1 = body.Q1;
     const Q2 = body.Q2;
         const res = await axios.post(process.env.SS_stop_SIP_DISCORD_WEBHOOK_URL, {
-            content: `New Submission: ${submissionID} from survey: ${surveyID}. CompletedOn: ${endTime}. UserName:${userName}. UserEmail: ${userEmail}. Stopped SIP amount: ${amountSIP}. Reason for stopping SIP: ${Q1}. Switching to (if shared): ${Q2}.`
+            content: `New Submission: ${submissionID} from survey: ${surveyID}.
+            CompletedOn: ${endTime}.
+            UserName:${userName}. 
+            UserEmail: ${userEmail}. 
+            Stopped SIP amount: ${amountSIP}.
+            Reason for stopping SIP: ${Q1}.
+            Switching to (if shared): ${Q2}.
+            `
           });
           console.log("Submitted!");
     return {
