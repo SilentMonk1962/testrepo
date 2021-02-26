@@ -22,15 +22,10 @@ exports.handler = async (event, context) => {
       subject: `Group Health CallBackRequest | SubmissionID ${submissionID}`,
       text: `
       Hello Team, 
-    
       There is a new submission with ID: ${submissionID} under survey number: ${surveyID}.
-    
       It was completed on ${endTime}.
-    
       The customer's reason for not buying is ${Q2}.
-    
       Additional details of the user are ${C1} ${C2} ${C3}.
-      
       Regards,
       NotifierBot`,
     };
@@ -45,15 +40,7 @@ exports.handler = async (event, context) => {
             Additional details of the user are ${C1} ${C2} ${C3}.`
           });
           console.log("Submitted!");
-          sgMail
-  .send(msg)
-  .then(() => {
-    console.log('Email sent')
-  })
-  .catch((error) => {
-    console.error(error)
-  });
-        console.log('Also sent a mail to support.')
+          sgMail.send(msg).then(() => {console.log('Also sent a mail to support.')}).catch((error) => {console.error(error)});
     }
     else {
         console.log("User did not like the offering.")
