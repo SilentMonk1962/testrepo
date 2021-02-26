@@ -35,17 +35,16 @@ exports.handler = async (event, context) => {
       NotifierBot`
     };
     //This is our where our business logic begins.
-
     if (Q2 === 'D. I need a callback')
     {
-        const res = await axios.post(process.env.DISCORD_WEBHOOK_URL, {
+      sgMail.send(msg).then(() => {console.log(`Email sent to ${msg.to}.`)}).catch((error) => {console.error(error)});
+      const res = await axios.post(process.env.DISCORD_WEBHOOK_URL, {
             content: `There is a new submission with ID: ${submissionID} under survey number: ${surveyID}.
             It was completed on ${endTime}.
             The customer's reason for not buying is ${Q2}.
             Additional details of the user are ${C1} ${C2} ${C3}.`
           });
           console.log("Submitted!");
-          sgMail.send(msg).then(() => {console.log(`Email sent to ${msg.to}.`)}).catch((error) => {console.error(error)});
     }
     else {
         console.log("User did not like the offering.")
