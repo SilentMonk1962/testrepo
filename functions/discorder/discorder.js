@@ -28,6 +28,14 @@ exports.handler = async (event, context) => {
       Additional details of the user are ${C1} ${C2} ${C3}.
       Regards,
       NotifierBot`,
+      html: `
+      Hello Team, 
+      There is a new submission with ID: ${submissionID} under survey number: ${surveyID}.
+      It was completed on ${endTime}.
+      The customer's reason for not buying is ${Q2}.
+      Additional details of the user are ${C1} ${C2} ${C3}.
+      Regards,
+      NotifierBot`,
     };
     //This is our where our business logic begins.
 
