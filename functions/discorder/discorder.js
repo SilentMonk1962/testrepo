@@ -1,6 +1,8 @@
 const axios = require("axios").default;
 const sgMail = require('@sendgrid/mail')
+console.log(process.env.SENDGRID_API_KEY);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY)
+
 // Docs on event and context https://www.netlify.com/docs/functions/#the-handler-method
 exports.handler = async (event, context) => {
   try {
