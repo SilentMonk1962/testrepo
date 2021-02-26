@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1"
+    "@sendgrid/mail": "^7.4.2",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0"
   }
 }
