@@ -7,8 +7,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 exports.handler = async (event, context) => {
   try {
     const body = JSON.parse(event.body);
-    console.log("Passing the JSON object parsed body.");
-    console.log(body);
+    //console.log("Passing the JSON object parsed body.");
+    //console.log(body);
     const surveyID = body.survey_id;
     const submissionID = body.submission_id;
     const C1 = body.C1 || "NA_c1";
@@ -35,7 +35,7 @@ exports.handler = async (event, context) => {
       The customer's reason for not buying is ${Q2}.
       Additional details of the user are ${C1} ${C2} ${C3}.
       Regards,
-      NotifierBot`,
+      NotifierBot`
     };
     //This is our where our business logic begins.
 
@@ -48,6 +48,7 @@ exports.handler = async (event, context) => {
             Additional details of the user are ${C1} ${C2} ${C3}.`
           });
           console.log("Submitted!");
+          console.log(msg);
           sgMail.send(msg).then(() => {console.log('Also sent a mail to support.')}).catch((error) => {console.error(error)});
     }
     else {
