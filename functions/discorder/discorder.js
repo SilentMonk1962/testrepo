@@ -8,15 +8,15 @@ exports.handler = async (event, context) => {
     //console.log(body);
     const surveyID = body.survey_id || "NA";
     const submissionID = body.submission_id || "NA";
-    const C1 = body.C1 || "NA";
-    const C2 = body.C2 || "NA";
-    const C3 = body.C3 || "NA";
+    const C1 = body.C1 || "Name not available";
+    const C2 = body.C2 || " Email not available";
+    const C3 = body.C3 || "Full name not available";
     const Q2 = body.Q2;
     const endTime=body.submission_completedTime;
     const msg = {
-      to: 'abhishek.singh@kuvera.in', // Change to your recipient
+      to: 'support@kuvera.in', // Change to your recipient
       from: 'abhishek.singh@kuvera.in', // Change to your verified sender
-      subject: `Group Health CallBackRequest | SubmissionID ${submissionID}`,
+      subject: `Group Health CallBackRequest | Email ${C2}`,
       text: `
       Hello Team, 
       There is a new submission with ID: ${submissionID} under survey number: ${surveyID}.
