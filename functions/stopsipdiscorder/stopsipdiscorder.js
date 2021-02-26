@@ -14,7 +14,7 @@ exports.handler = async (event, context) => {
     const Q1 = body.Q1;
     const Q2 = body.Q2 || "Not available";
     const msg = {
-      to: 'abhishek.singh@kuvera.in', // Change to your recipient
+      to: 'support@kuvera.in', // Change to your recipient
       from: 'abhishek.singh@kuvera.in', // Change to your verified sender
       subject: `SIP Issue reported on Survey | UserEmail ${userEmail}`,
       text: `
