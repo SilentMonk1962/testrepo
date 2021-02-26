@@ -2,3 +2,4 @@
 .env
 .netlify
 node_modules/
+temail.js
